@@ -45,6 +45,7 @@ func testHandler(w http.ResponseWriter, r *http.Request) {
 
 func templateHandler(w http.ResponseWriter, r *http.Request) {
 
+	// Templates wont work if the name is lowercase
 	var data pageData
 	data = pageData{
 		PageTitle: "Chrises Space",
