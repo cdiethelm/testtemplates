@@ -14,9 +14,14 @@ func main() {
 	startHTTP()
 }
 
+type car struct {
+	Number int
+	Maker  string
+}
+
 type PageData struct {
 	PageTitle string
-	Options   []string
+	Options   []car
 }
 
 func startHTTP() {
@@ -43,7 +48,11 @@ func templateHandler(w http.ResponseWriter, r *http.Request) {
 	var data PageData
 	data = PageData{
 		PageTitle: "Chrises Space",
-		Options:   []string{"hyundai", "volvo", "tesla"},
+		Options: []car{
+			{Number: 1, Maker: "volvo"},
+			{Number: 2, Maker: "tesla"},
+			{Number: 3, Maker: "hyundai"},
+		},
 	}
 
 	tmpl := template.Must(template.ParseFiles("templates/test.html"))
