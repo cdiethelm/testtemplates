@@ -10,18 +10,18 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func main() {
-	startHTTP()
-}
-
 type car struct {
 	Number int
 	Maker  string
 }
 
-type PageData struct {
+type pageData struct {
 	PageTitle string
 	Options   []car
+}
+
+func main() {
+	startHTTP()
 }
 
 func startHTTP() {
@@ -45,8 +45,8 @@ func testHandler(w http.ResponseWriter, r *http.Request) {
 
 func templateHandler(w http.ResponseWriter, r *http.Request) {
 
-	var data PageData
-	data = PageData{
+	var data pageData
+	data = pageData{
 		PageTitle: "Chrises Space",
 		Options: []car{
 			{Number: 1, Maker: "volvo"},
