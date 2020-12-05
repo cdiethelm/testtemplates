@@ -18,6 +18,7 @@ type car struct {
 type pageData struct {
 	PageTitle string
 	Options   []car
+	Done      bool
 }
 
 func main() {
@@ -54,6 +55,7 @@ func templateHandler(w http.ResponseWriter, r *http.Request) {
 			{Number: 2, Maker: "tesla"},
 			{Number: 3, Maker: "hyundai"},
 		},
+		Done: true,
 	}
 
 	tmpl := template.Must(template.ParseFiles("templates/test.html"))
